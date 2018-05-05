@@ -25,7 +25,7 @@ script:
   - export KBUILD_BUILD_USER="yashpaljoshi"
   - export KBUILD_BUILD_HOST="Shivom"
   - export ARCH=arm64
-  - make  l22_defconfig
+  - make l22_defconfig
   - make -j2
 
 after_success:
