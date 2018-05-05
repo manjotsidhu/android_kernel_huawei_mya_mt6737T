@@ -1,0 +1,32 @@
+language: c
+#######################################################################################
+os:
+  - linux
+  
+addons:
+  apt:
+    packages:
+      - curl
+
+#######################################################################################
+
+
+before_install:
+
+  - sudo apt-get update -qq
+  
+  - git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 ~/toolchain/
+
+#######################################################################################
+
+
+script:  
+  - export CROSS_COMPILE=~/toolchain/bin/aarch64-linux-android-
+  - export KBUILD_BUILD_USER="yashpaljoshi"
+  - export KBUILD_BUILD_HOST="Shivom"
+  - export ARCH=arm64
+  - make  l22_defconfig
+  - make -j2
+
+after_success:
+  - curl --upload-file arch/arm64/boot/Image https://transfer.sh/lyf_kernel
