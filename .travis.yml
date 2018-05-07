@@ -12,7 +12,6 @@ addons:
 
 
 before_install:
-  - sudo -s
   - sudo apt-get update -qq
   
   - git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 ~/toolchain/
@@ -21,7 +20,7 @@ before_install:
 
 
 script:  
-  - export CROSS_COMPILE=~/toolchain/bin/aarch64-linux-android-
+  - export CROSS_COMPILE=~/toolchain/aarch64-linux-android-/bin
   - export KBUILD_BUILD_USER="yashpaljoshi"
   - export KBUILD_BUILD_HOST="Shivom"
   - make ARCH=arm64 l22_defconfig
