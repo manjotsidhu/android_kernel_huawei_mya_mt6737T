@@ -27,7 +27,7 @@ script:
   - export KBUILD_BUILD_HOST="Shivom"
   - make ARCH=arm64 l22_defconfig O=out/
   - make ARCH=arm64 Image.gz-dtb O=out/
-  - cp drivers/*/*.ko modules_mya
+  - grep -rl --null --include '*.ko' LINUX/UNIX . | xargs -0r cp -t modules_mya
   - zip -r modules.zip modules_mya 
 
 after_success:
