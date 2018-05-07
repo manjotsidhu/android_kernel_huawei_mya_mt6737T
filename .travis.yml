@@ -20,7 +20,7 @@ before_install:
 
 
 script:  
-  - export CROSS_COMPILE=~/toolchain/aarch64-linux-android/bin
+  - export CROSS_COMPILE=~/toolchain/aarch64-linux-android/bin/aarch64-linux-android-
   - export KBUILD_BUILD_USER="yashpaljoshi"
   - export KBUILD_BUILD_HOST="Shivom"
   - make ARCH=arm64 l22_defconfig
