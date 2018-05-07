@@ -31,5 +31,5 @@ script:
   - zip -r modules.zip modules_mya 
 
 after_success:
-  - curl --upload-file arch/arm64/boot/Image.gz-dtb https://transfer.sh/mya_kernel
+  - curl --upload-file out/arch/arm64/boot/Image.gz-dtb https://transfer.sh/mya_kernel
   - curl --upload-file modules.zip https://transfer.sh/mya_modules
